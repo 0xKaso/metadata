@@ -1,45 +1,131 @@
 const fs = require("fs");
 const path = require("path");
 
-fs.readFile(path.join(__dirname, "./data.txt"), (err, res) => {
-  let isError = false;
-  if (err) {
-    console.log("有误，解析失败");
-    return;
-  }
+var cryptoHash = require("crypto-hashing");
 
+// console.log(cryptoHash('hash256', new Buffer('Hello there!')).toString('hex'))
+
+fs.readFile(path.join(__dirname, "./data.txt"), (err, res) => {
   const arr = res
     .toString()
     .split("\n")
     .map((item) => item.split(","));
 
-    console.log(arr);
   const metadata = arr.map((item) => {
     const metadata = {
-      image: `https://raw.githubusercontent.com/W3T-Web3-Genius-Tools/sbt/main/src/metadata/images/${item[0]}.png`,
-      name: `Chat GPT Finance #${item[0]}`,
+      image: `https://raw.githubusercontent.com/ChatFinance/chatfi/main/images/${item[0]}.png`,
+      name: `Chat-GPT Finance #${item[0]}`,
       tokenId: item[0],
-      external_url: "https://github.com/W3T-Web3-Genius-Tools",
+      external_url: "https://twitter.com/ChatFi_AI",
       attributes: [
-        { trait_type: "glasses", value: item[2] },
-        { trait_type: "hat", value: item[3] },
-        { trait_type: "facemask", value: item[4] },
-        { trait_type: "mouth", value: item[5] },
-        { trait_type: "earpros", value: item[6] },
-        { trait_type: "hair", value: item[7] },
-        { trait_type: "eyes", value: item[8] },
-        { trait_type: "nose", value: item[9] },
-        { trait_type: "eyebrow", value: item[10] },
-        { trait_type: "beards", value: item[11] },
-        { trait_type: "ears", value: item[12] },
-        { trait_type: "body", value: item[13] },
-        { trait_type: "background", value: item[14] }
+        {
+          trait_type: "glasses",
+          value:
+            "0x" +
+            cryptoHash("hash256", new Buffer(item[2]))
+              .toString("hex")
+              .slice(0, 5),
+        },
+        {
+          trait_type: "hat",
+          value:
+            "0x" +
+            cryptoHash("hash256", new Buffer(item[3]))
+              .toString("hex")
+              .slice(0, 5),
+        },
+        {
+          trait_type: "facemask",
+          value:
+            "0x" +
+            cryptoHash("hash256", new Buffer(item[4]))
+              .toString("hex")
+              .slice(0, 5),
+        },
+        {
+          trait_type: "mouth",
+          value:
+            "0x" +
+            cryptoHash("hash256", new Buffer(item[5]))
+              .toString("hex")
+              .slice(0, 5),
+        },
+        {
+          trait_type: "earpros",
+          value:
+            "0x" +
+            cryptoHash("hash256", new Buffer(item[6]))
+              .toString("hex")
+              .slice(0, 5),
+        },
+        {
+          trait_type: "hair",
+          value:
+            "0x" +
+            cryptoHash("hash256", new Buffer(item[7]))
+              .toString("hex")
+              .slice(0, 5),
+        },
+        {
+          trait_type: "eyes",
+          value:
+            "0x" +
+            cryptoHash("hash256", new Buffer(item[8]))
+              .toString("hex")
+              .slice(0, 5),
+        },
+        {
+          trait_type: "nose",
+          value:
+            "0x" +
+            cryptoHash("hash256", new Buffer(item[9]))
+              .toString("hex")
+              .slice(0, 5),
+        },
+        {
+          trait_type: "eyebrow",
+          value:
+            "0x" +
+            cryptoHash("hash256", new Buffer(item[10]))
+              .toString("hex")
+              .slice(0, 5),
+        },
+        {
+          trait_type: "beards",
+          value:
+            "0x" +
+            cryptoHash("hash256", new Buffer(item[11]))
+              .toString("hex")
+              .slice(0, 5),
+        },
+        {
+          trait_type: "ears",
+          value:
+            "0x" +
+            cryptoHash("hash256", new Buffer(item[12]))
+              .toString("hex")
+              .slice(0, 5),
+        },
+        {
+          trait_type: "body",
+          value:
+            "0x" +
+            cryptoHash("hash256", new Buffer(item[13]))
+              .toString("hex")
+              .slice(0, 5),
+        },
+        {
+          trait_type: "background",
+          value:
+            "0x" +
+            cryptoHash("hash256", new Buffer(item[14]))
+              .toString("hex")
+              .slice(0, 5),
+        },
       ],
     };
     return metadata;
   });
-
-
 
   // const resString = res.toString();
   // const resultJSON = resString.split(',').map(item => item.split('\t')).map(item => item.map(item => item.trim())).map(item => {
@@ -73,13 +159,13 @@ fs.readFile(path.join(__dirname, "./data.txt"), (err, res) => {
   //   fs.writeFileSync(path.join(__dirname, './metadata.json'), JSON.stringify(metadata, null, 2))
   //   fs.writeFileSync(path.join(__dirname, '../images-gen/src/data/data.json'), JSON.stringify(metadata, null, 2))
   // 生成多文件-单文件
-    for (let i = 0; i < metadata.length; i++) {
-      console.log(metadata[i]);
-      fs.writeFileSync(
-        path.join(__dirname, `./data/${metadata[i].tokenId}.json`),
-        JSON.stringify(metadata[i], null, 2)
-      );
-    }
+  for (let i = 0; i < metadata.length; i++) {
+    console.log(metadata[i]);
+    fs.writeFileSync(
+      path.join(__dirname, `./data/${metadata[i].tokenId}.json`),
+      JSON.stringify(metadata[i], null, 2)
+    );
+  }
 
   // if (!isError) {
   //     console.log("解析成功");
