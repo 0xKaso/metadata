@@ -1,4 +1,3 @@
-ID,文件名,glasses,hat,facemask,mouth,earpros,hair,eyes,nose,eyebrow,beards,ears,body,background,swag
 1,1.png,glasses (75),hat-8,facemask (68),mouth (70),earpros-1,hair-3,eye (71),nose (69),eyebrow1,beards (75),ears,body-20,background,
 2,2.png,glasses (76),hat-6,facemask (68),mouth (71),earpods,hair-2,eye (71),nose (71),eyebrow3,beards (68),ears,body-20,background-4,
 3,3.png,glasses (68),hat-3,facemask (69),mouth (72),earpods,hair,eye (70),nose (69),eyebrow2,beards (74),ears,body-8,background-2,

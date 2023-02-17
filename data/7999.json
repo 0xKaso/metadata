@@ -1,0 +1,60 @@
+{
+  "image": "https://raw.githubusercontent.com/W3T-Web3-Genius-Tools/sbt/main/src/metadata/images/7999.png",
+  "name": "Chat GPT Finance #7999",
+  "tokenId": "7999",
+  "external_url": "https://github.com/W3T-Web3-Genius-Tools",
+  "attributes": [
+    {
+      "trait_type": "glasses",
+      "value": "glasses (69)"
+    },
+    {
+      "trait_type": "hat",
+      "value": "hat-15"
+    },
+    {
+      "trait_type": "facemask",
+      "value": "facemask (68)"
+    },
+    {
+      "trait_type": "mouth",
+      "value": "mouth (72)"
+    },
+    {
+      "trait_type": "earpros",
+      "value": "earpros-1"
+    },
+    {
+      "trait_type": "hair",
+      "value": "hair-3"
+    },
+    {
+      "trait_type": "eyes",
+      "value": "eye (73)"
+    },
+    {
+      "trait_type": "nose",
+      "value": "nose (71)"
+    },
+    {
+      "trait_type": "eyebrow",
+      "value": "eyebrow1"
+    },
+    {
+      "trait_type": "beards",
+      "value": "beards (74)"
+    },
+    {
+      "trait_type": "ears",
+      "value": "ears"
+    },
+    {
+      "trait_type": "body",
+      "value": "body"
+    },
+    {
+      "trait_type": "background",
+      "value": "background-6"
+    }
+  ]
+}
